@@ -2,10 +2,13 @@ name: Publish Quarto Website
 
 on:
   push:
-    branches: main
+    branches:
+      - main
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 jobs:
   build:
@@ -21,7 +24,7 @@ jobs:
       - name: Render Quarto Project
         uses: quarto-dev/quarto-actions/render@v2
 
-     - name: Publish to GitHub Pages
+      - name: Publish to GitHub Pages
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: gh-pages
